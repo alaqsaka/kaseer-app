@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="w-4/6 lg:w-5/6 mx-auto flex gap-6">
           <div
             onClick={() => router.push("/food")}
-            className={`px-5  flex items-center font-semibold text-center hover:bg-gray-100 cursor-pointer ${
+            className={`px-5 flex items-center font-semibold text-center hover:bg-gray-100 cursor-pointer ${
               pathname.includes("food") === true && "border-sky-500 border-b-2"
             }`}
           >
@@ -27,7 +27,7 @@ const Navbar = () => {
           </div>
           <div
             onClick={() => router.push("/transaction")}
-            className={`px-5  flex items-center font-semibold text-center hover:bg-gray-100 cursor-pointer ${
+            className={`px-5 flex items-center font-semibold text-center hover:bg-gray-100 cursor-pointer ${
               pathname.includes("transaction") && "border-sky-500 border-b-2"
             }`}
           >

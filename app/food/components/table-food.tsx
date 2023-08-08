@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -8,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Image from "next/image";
+import { LuEdit, LuTrash } from "react-icons/lu";
 
 const TableFood = () => {
   return (
@@ -18,6 +20,7 @@ const TableFood = () => {
           <TableHead>Nama</TableHead>
           <TableHead>Foto</TableHead>
           <TableHead className="">Harga</TableHead>
+          <TableHead className="text-right">Aksi</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -35,6 +38,18 @@ const TableFood = () => {
                 />
               </TableCell>
               <TableCell className="">Rp. 30.000</TableCell>
+              <TableCell className="text-right">
+                <div className="flex gap-2 justify-end">
+                  <Button className="bg-amber-500 hover:bg-amber-400">
+                    <LuEdit className="h-4 w-4" />
+                    Edit
+                  </Button>
+                  <Button className="bg-red-500 hover:bg-red-400">
+                    <LuTrash className="h-4 w-4" />
+                    Delete
+                  </Button>
+                </div>
+              </TableCell>
             </TableRow>
           );
         })}
