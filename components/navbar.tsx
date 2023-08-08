@@ -20,7 +20,7 @@ const Navbar = () => {
           <div
             onClick={() => router.push("/food")}
             className={`px-5  flex items-center font-semibold text-center hover:bg-gray-100 cursor-pointer ${
-              pathname == "/food" && "border-sky-500 border-b-2"
+              pathname.includes("food") === true && "border-sky-500 border-b-2"
             }`}
           >
             Food
@@ -28,7 +28,7 @@ const Navbar = () => {
           <div
             onClick={() => router.push("/transaction")}
             className={`px-5  flex items-center font-semibold text-center hover:bg-gray-100 cursor-pointer ${
-              pathname == "/transaction" && "border-sky-500 border-b-2"
+              pathname.includes("transaction") && "border-sky-500 border-b-2"
             }`}
           >
             Transaction
