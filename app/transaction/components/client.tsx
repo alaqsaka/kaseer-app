@@ -3,9 +3,20 @@
 import { Button } from "@/components/ui/button";
 import CartItem from "@/components/ui/cart-item";
 import ProductCard from "@/components/ui/product-card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Product } from "@/types";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { Input } from "@/components/ui/input";
+import TableFood from "./table-food";
 
 interface Cart {
   productId: string;
@@ -75,6 +86,48 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
     return totalPrice;
   };
 
+  const ChargeBill = () => {
+    return (
+      <>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="w-full mt-3" disabled={carts.length == 0}>
+              Charge Rp. {countTotalPrices()}
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[1025px]">
+            <DialogHeader>
+              <DialogTitle>Detail Pesanan</DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 grid-cols-5">
+              <div className="col-span-3">
+                <TableFood data={carts} />
+              </div>
+              <div className="text-center col-span-2 w-full">
+                <p className="text-base font-semibold">Uang Pembeli (Rp.)</p>
+                <Input className="mt-5 w-full" />
+
+                <div className="mt-5 flex">
+                  <Button type="submit" variant="outline" className="w-full">
+                    Close
+                  </Button>
+                  <Button type="submit" className="w-full">
+                    Pay!
+                  </Button>
+                </div>
+
+                <div className="mt-3">
+                  <p className="text-red-500 text-left">Kembalian: </p>
+                </div>
+              </div>
+            </div>
+            <DialogFooter></DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </>
+    );
+  };
+
   console.log("total price in carts ", totalPriceInCarts);
 
   return (
@@ -119,7 +172,7 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
             Print Bill
           </Button>
         </div>
-        <Button className="w-full mt-3">Charge Rp. {countTotalPrices()}</Button>
+        <ChargeBill />
       </div>
     </div>
   );
