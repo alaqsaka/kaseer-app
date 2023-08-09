@@ -18,8 +18,8 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
   const addProduct = () => {};
 
   return (
-    <div className="grid grid-cols-3 gap-3">
-      <div className="col-span-2" style={{ width: "inherit" }}>
+    <div className="grid grid-cols-3 gap-3 h-[75vh]">
+      <div className="col-span-2 overflow-auto" style={{ width: "inherit" }}>
         <div className="grid grid-cols-3 gap-4">
           {data.map((product) => (
             <ProductCard key={product.id} data={product} />
