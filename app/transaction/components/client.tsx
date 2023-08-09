@@ -5,6 +5,7 @@ import CartItem from "@/components/ui/cart-item";
 import ProductCard from "@/components/ui/product-card";
 import { Product } from "@/types";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 interface Cart {
   productId: string;
@@ -58,6 +59,10 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
     setCarts([]);
   };
 
+  const saveBill = () => {
+    toast.success("Bill Saved Successfully");
+  };
+
   return (
     <div className="grid grid-cols-3 gap-3 h-[75vh]">
       <div className="col-span-2 overflow-auto" style={{ width: "inherit" }}>
@@ -87,10 +92,16 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
           Clear Cart
         </Button>
         <div className="flex gap-2 mt-3">
-          <Button className="bg-green-600 w-full hover:bg-green-500">
+          <Button
+            className="bg-green-600 w-full hover:bg-green-500"
+            onClick={() => saveBill()}
+          >
             Save Bill
           </Button>
-          <Button className="bg-green-600 w-full hover:bg-green-500">
+          <Button
+            className="bg-green-600 w-full hover:bg-green-500"
+            onClick={() => window.print()}
+          >
             Print Bill
           </Button>
         </div>
