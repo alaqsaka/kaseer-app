@@ -4,12 +4,15 @@ import { Label } from "@/components/ui/label";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import FoodForm from "../components/food-form";
 
 const New = () => {
   return (
     <Container>
       <div className="bg-white p-5">
         <p className="text-sky-500 font-semibold text-lg">Tambahkan Menu</p>
+
+        <FoodForm />
 
         <div className="mt-3">
           <Label htmlFor="name">Nama Menu</Label>
