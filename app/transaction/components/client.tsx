@@ -22,6 +22,7 @@ interface TransactionClientProps {
 
 const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
   const [carts, setCarts] = useState<Cart[]>([]);
+  const [totalPriceInCarts, setTotalPriceInCarts] = useState<number>(0);
 
   const addProduct = (product: Product) => {
     // Check if product exist in cart
@@ -41,7 +42,6 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
       setCarts(updatedArray);
     } else {
       // New product
-
       const cart: Cart = {
         name: product.name,
         productId: product.id,
@@ -53,15 +53,29 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
 
       setCarts((prevArray) => [...prevArray, cart]);
     }
+    countTotalPrices();
   };
 
   const clearCart = () => {
     setCarts([]);
+    setTotalPriceInCarts(0);
   };
 
   const saveBill = () => {
     toast.success("Bill Saved Successfully");
   };
+
+  const countTotalPrices = () => {
+    console.log("carts ", carts);
+    let totalPrice = 0;
+    for (const item of carts) {
+      totalPrice += item.totalPrice;
+    }
+
+    return totalPrice;
+  };
+
+  console.log("total price in carts ", totalPriceInCarts);
 
   return (
     <div className="grid grid-cols-3 gap-3 h-[75vh]">
@@ -105,7 +119,7 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
             Print Bill
           </Button>
         </div>
-        <Button className="w-full mt-3">Charge Rp. 40.000</Button>
+        <Button className="w-full mt-3">Charge Rp. {countTotalPrices()}</Button>
       </div>
     </div>
   );
