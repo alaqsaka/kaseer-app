@@ -4,3 +4,12 @@ export interface Product {
   imageUrl: string;
   price: string;
 }
+
+export interface Cart {
+  productId: string;
+  name: string;
+  jumlah: number;
+  price: number;
+  totalPrice: number;
+  imageUrl: string;
+}

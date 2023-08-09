@@ -3,11 +3,12 @@ import Image from "next/image";
 
 interface ProductCardProps {
   data: Product;
+  onClick: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ data, onClick }) => {
   return (
-    <div className="bg-white cursor-pointer shadow-md">
+    <div className="bg-white cursor-pointer shadow-md" onClick={onClick}>
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           src={data.imageUrl}
