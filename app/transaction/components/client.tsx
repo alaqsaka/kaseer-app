@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import CartItem from "@/components/ui/cart-item";
 import ProductCard from "@/components/ui/product-card";
 import { Product } from "@/types";
 import { useState } from "react";
@@ -28,6 +29,9 @@ const TransactionClient: React.FC<TransactionClientProps> = ({ data }) => {
 
       <div className="bg-white p-3 shadow-md rounded-md h-fit">
         <p className="text-xl text-center font-bold">Pesanan</p>
+
+        <CartItem />
+
         <Button
           variant="outline"
           className="border-red-500 text-red-500 hover:text-red-500 hover:bg-white w-full font-semibold mt-3"

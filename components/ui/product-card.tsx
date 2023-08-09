@@ -7,7 +7,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   return (
-    <div className="bg-white cursor-pointer">
+    <div className="bg-white cursor-pointer shadow-md">
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           src={data.imageUrl}
